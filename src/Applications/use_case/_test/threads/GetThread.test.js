@@ -27,8 +27,23 @@ describe('Get Thread Detail Test on ThreadsUseCase', () => {
         content: 'ini komentar A',
         isDelete: date,
       }),
+      new DetailComment({
+        id: 'comment-666212',
+        username: 'user A',
+        createdAt: date,
+        content: 'ini komentar A',
+        isDelete: null,
+      }),
     ];
     const repliesResult = [
+      new DetailReplies({
+        id: 'reply-666212',
+        username: 'user C',
+        createdAt: date,
+        content: 'ini balasan komentar A',
+        isDelete: null,
+        commentId: 'comment-666212',
+      }),
       new DetailReplies({
         id: 'reply-666212',
         username: 'user C',
@@ -58,10 +73,12 @@ describe('Get Thread Detail Test on ThreadsUseCase', () => {
           ? '**komentar telah dihapus**'
           : comment.content,
     }));
+    console.log(detailedCommentResult[0].replies);
     const expectationsDetailThread = new GetAllDetailThread({
       ...threadResult,
       comments: detailedCommentResult,
     });
+    console.log(expectationsDetailThread);
 
     // Mocking
     const mockThreadsRepository = new ThreadsRepository();

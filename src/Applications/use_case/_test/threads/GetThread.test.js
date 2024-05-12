@@ -73,12 +73,10 @@ describe('Get Thread Detail Test on ThreadsUseCase', () => {
           ? '**komentar telah dihapus**'
           : comment.content,
     }));
-    console.log(detailedCommentResult[0].replies);
     const expectationsDetailThread = new GetAllDetailThread({
       ...threadResult,
       comments: detailedCommentResult,
     });
-    console.log(expectationsDetailThread);
 
     // Mocking
     const mockThreadsRepository = new ThreadsRepository();

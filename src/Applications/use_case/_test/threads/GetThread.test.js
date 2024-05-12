@@ -28,7 +28,7 @@ describe('Get Thread Detail Test on ThreadsUseCase', () => {
         isDelete: date,
       }),
       new DetailComment({
-        id: 'comment-666212',
+        id: 'comment-2333',
         username: 'user A',
         createdAt: date,
         content: 'ini komentar A',
@@ -37,11 +37,19 @@ describe('Get Thread Detail Test on ThreadsUseCase', () => {
     ];
     const repliesResult = [
       new DetailReplies({
-        id: 'reply-666212',
+        id: 'reply-4124',
         username: 'user C',
         createdAt: date,
         content: 'ini balasan komentar A',
         isDelete: null,
+        commentId: 'comment-666212',
+      }),
+      new DetailReplies({
+        id: 'reply-42155',
+        username: 'user C',
+        createdAt: date,
+        content: 'ini balasan komentar A',
+        isDelete: date,
         commentId: 'comment-666212',
       }),
       new DetailReplies({
@@ -50,7 +58,7 @@ describe('Get Thread Detail Test on ThreadsUseCase', () => {
         createdAt: date,
         content: 'ini balasan komentar A',
         isDelete: date,
-        commentId: 'comment-666212',
+        commentId: 'comment-2333',
       }),
     ];
     const detailedCommentResult = commentsResult.map((comment) => ({
@@ -100,6 +108,9 @@ describe('Get Thread Detail Test on ThreadsUseCase', () => {
 
     // Assert
     expect(useCaseResult).toStrictEqual(expectationsDetailThread);
+    expect(useCaseResult.comments).toHaveLength(2);
+    expect(useCaseResult.comments[0].replies).toHaveLength(2);
+    expect(useCaseResult.comments[1].replies).toHaveLength(1);
     expect(mockThreadsRepository.checkAvailabilityThreadId).toBeCalledWith(
       threadId,
     );

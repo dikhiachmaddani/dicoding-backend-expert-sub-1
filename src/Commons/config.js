@@ -1,14 +1,4 @@
 /* istanbul ignore file */
-const dotenv = require('dotenv');
-const path = require('path');
-
-if (process.env.NODE_ENV === 'test') {
-  dotenv.config({
-    path: path.resolve(process.cwd(), '.test.env'),
-  });
-} else {
-  dotenv.config();
-}
 
 const config = {
   app: {
@@ -23,6 +13,13 @@ const config = {
     password: process.env.PGPASSWORD,
     database: process.env.PGDATABASE,
   },
+  testDatabase:{
+    host: process.env.PGHOST_TEST,
+    port: process.env.PGPORT_TEST,
+    user: process.env.PGUSER_TEST,
+    password: process.env.PGPASSWORD_TEST,
+    database: process.env.PGDATABASE_TEST,
+  }
 };
 
 module.exports = config;

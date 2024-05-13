@@ -15,14 +15,11 @@ jobs:
       with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USERNAME }}
-        # Konfigurasi key dan password bergantung credentials server yang digunakan
-        # Silahkan sesuaikan dengan config server
-        # key: ${{ secrets.SSH_KEY }}
         password: ${{ secrets.SSH_PASSWORD }}
         port: ${{ secrets.SSH_PORT }}
         # nilai forum bergantung pada penamaan pada saat register ketika menjalankan pm2
         script: |
-          cd ~/forum-api
+          cd ~/dicoding-backend-expert-sub-1
           git pull origin main
           npm install
           npm run migrate up

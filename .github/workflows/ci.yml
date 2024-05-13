@@ -42,6 +42,8 @@ jobs:
         npm run test
       env:
         CI: true
+        HOST: ${{ secrets.HOST_TEST }}
+        PORT: ${{ secrets.PORT_TEST }}
         PGHOST_TEST: ${{ secrets.PGHOST_TEST }}
         PGUSER_TEST: ${{ secrets.PGUSER_TEST }}
         PGDATABASE_TEST: ${{ secrets.PGDATABASE_TEST }}
@@ -54,3 +56,4 @@ jobs:
         PGPORT: ${{ secrets.PGPORT_TEST }}
         ACCESS_TOKEN_KEY: ${{ secrets.ACCESS_TOKEN_KEY }}
         REFRESH_TOKEN_KEY: ${{ secrets.REFRESH_TOKEN_KEY }}
+        ACCCESS_TOKEN_AGE: ${{ secrets.ACCCESS_TOKEN_AGE }}

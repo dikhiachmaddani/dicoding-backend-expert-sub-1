@@ -356,6 +356,7 @@ describe('RepliesRepositoryPostgres', () => {
       await expect(
         replyRepositoryPostgres.deleteRepliesById('reply-oinvewovnnnncm'),
       ).resolves.not.toThrowError();
+
       const deletedReply = await RepliesTableTestHelper.findRepliesById('reply-oinvewovnnnncm');
       expect(deletedReply.isDelete).not.toBeNull();
     });

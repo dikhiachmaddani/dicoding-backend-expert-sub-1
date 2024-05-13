@@ -25,7 +25,6 @@ server {
 
 }
 
-
 server {
         if ($host = forum.tenkacu.com) {
                 return 301 https://$host$request_uri;

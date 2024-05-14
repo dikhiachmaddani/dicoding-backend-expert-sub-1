@@ -35,7 +35,7 @@ describe('Add Reply Test on RepliesUseCase', () => {
 
     mockRepliesRepository.addReplies = jest.fn(() => Promise.resolve(
       new AddedReplies({
-        id: 'reply-666212',
+        id: 'reply-335',
         content: payload.content,
         userId,
       }),

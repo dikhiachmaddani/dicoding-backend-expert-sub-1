@@ -16,8 +16,8 @@ describe('Add Reply Test on RepliesUseCase', () => {
       commentId: 'comment-666212',
       content: 'ini content balasan pertama',
     };
-    const validateRepliesPayload = new AddingReplies(payload);
     const userId = 'user-666212';
+    const validateRepliesPayload = new AddingReplies(payload);
 
     const expectedAddedReplies = new AddedReplies({
       id: 'reply-666212',
